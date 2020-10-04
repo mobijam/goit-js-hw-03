@@ -1,45 +1,44 @@
-function calculateTotalPrice(array, prop) {
-  let resultValue = 0;
-  for (const product of array) {
-    if (prop === product.name) {
-      resultValue += product.price * product.quantity;
-    }
-  }
-  return resultValue;
-}
+const getUsersWithAge = (array, min, max) =>
+  array
+    .filter(({ age }) => age > min && age < max)
+    .map(({ name, email }) => ({ name, email }));
 
-// Объекты и ожидаемый результат
-const products = [
-  { name: 'Радар', price: 1300, quantity: 4 },
-  { name: 'Радар', price: 1280, quantity: 2 },
-  { name: 'Радар', price: 1320, quantity: 1 },
-  { name: 'Сканер', price: 2700, quantity: 1 },
-  { name: 'Сканер', price: 2500, quantity: 3 },
-  { name: 'Дроид', price: 400, quantity: 7 },
-  { name: 'Захват', price: 1200, quantity: 2 },
-];
+console.log(getUsersWithAge(users, 20, 30));
+/* [
+    { name: 'Ross Vazquez', email: 'rossvazquez@xinware.com' },
+    { name: 'Elma Head', email: 'elmahead@omatom.com' },
+    { name: 'Carey Barr', email: 'careybarr@nurali.com' }
+] */
 
-console.log(calculateTotalPrice(products, 'Радар'));
-// 9080
+console.log(getUsersWithAge(users, 30, 40));
+/* [
+    { name: 'Moore Hensley', email: 'moorehensley@indexia.com' },
+    { name: 'Sharlene Bush', email: 'sharlenebush@tubesys.com' },
+    { name: 'Blackburn Dotson', email: 'blackburndotson@furnigeer.com' },
+    { name: 'Sheree Anthony', email: 'shereeanthony@kog.com' }
+] */
 
-console.log(calculateTotalPrice(products, 'Сканер'));
-// 10200
+/*
+filter, map и создание анонимных объектов
+Получи массив из объектов, которые состоят только из свойств name и email тех пользователей, которые попадают в возрастную категорию от min до max лет (значение свойства age).
 
-console.log(calculateTotalPrice(products, 'Захват'));
-// 2400
+Сравнение, пример
 
-console.log(calculateTotalPrice(products, 'Дроид'));
-// 2800
+const x = 13;
 
-// Напиши функцию calculateTotalPrice(allProdcuts, productName), которая получает массив объектов и имя продукта(значение свойства name).Возвращает общую стоимость продукта(цена умноженная на количество).
+// num больше 10 ?
+const larger = num > 10; // true
 
-// Вызовы функции для проверки работоспособности твоей реализации.
+// num меньше 100 ?
+const smaller = 100 > num; // true
 
-// calculateTotalPrice(products, 'Радар'));
-// 9080
+// num находитя между 10 и 100 ?
+const between = smaller && larger; // true
+Создание анонимных объектов:
 
-// calculateTotalPrice(products, 'Сканер')); // 10200
-
-// calculateTotalPrice(products, 'Захват')); // 2400
-
-// calculateTotalPrice(products, 'Дроид')); // 2800
+const arr = Array(3)
+  .fill('')
+  .map((e,i) => ({['index']: i }));
+// [ { index: 0 }, { index: 1 }, { index: 2 } ] 
+Используй только перебирающие методы массива которые не изменяют (не мутируют) исходный массив. Т.е. нельзя использовать for, splice, push и т.п. мутирующие методы.
+*/

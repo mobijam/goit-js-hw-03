@@ -1,43 +1,19 @@
-const findBestEmployee = function (employees) {
-  const maxTasks = Math.max(...Object.values(employees));
-  const keys = Object.keys(employees);
-  let message = '';
-  for (const key of keys) {
-    if (maxTasks === employees[key]) {
-      message = key;
-    }
-  }
-  return message;
-};
+const getUsersWithGender = (array, gender) =>
+  array.filter(element => element.gender === gender).map(({ name }) => name);
 
-// Объекты и ожидаемый результат
-const developers = {
-  ann: 29,
-  david: 35,
-  helen: 1,
-  lorence: 99,
-};
-console.log(findBestEmployee(developers));
-// 'lorence'
+console.log(getUsersWithGender(users, 'male'));
 
-const supports = {
-  poly: 12,
-  mango: 17,
-  ajax: 4,
-};
-console.log(findBestEmployee(supports));
-// 'mango'
+/* [
+  "Moore Hensley",
+  "Ross Vazquez",  
+  "Carey Barr",  
+  "Blackburn Dotson"  
+] */
+/*
+filter, map
+Получи массив имен пользователей (значение свойства name) по полу (значение свойства gender).
 
-const sellers = {
-  lux: 147,
-  david: 21,
-  kiwi: 19,
-  chelsy: 38,
-};
-console.log(findBestEmployee(sellers));
-// 'lux'
+Используй деструктурирующее присваивание для параметра функции ({name}) без пробелов и переносов на новую строку.
 
-// Поиск наибольшего значения среди свойств объекта
-// Напиши функцию findBestEmployee(employees), которая принимает объект сотрудников
-// и возвращает имя самого продуктивного(который выполнил больше всех задач).
-// Сотрудники и кол - во выполненных задач содержатся как свойства объекта в формате "имя": "кол-во задач".
+Используй только перебирающие методы массива которые не изменяют (не мутируют) исходный массив. Т.е. нельзя использовать for, splice, push и т.п. мутирующие методы.
+*/

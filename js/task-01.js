@@ -1,45 +1,36 @@
-let message = '';
-const user = {
-  age: 20,
-  hobby: 'html',
-  name: 'Mango',
-  premium: true,
-};
+const getUserNames = array => array.map(({ name }) => name);
 
-user.mood = 'happy';
-user['full time'] = true;
-user.hobby = 'skydiving';
-user.premium = false;
+console.log(getUserNames(users));
 
-const keys = Object.keys(user);
+/* [
+  "Moore Hensley",
+  "Sharlene Bush",
+  "Ross Vazquez",
+  "Elma Head",
+  "Carey Barr",
+  "Blackburn Dotson",
+  "Sheree Anthony",
+] */
 
-for (const key of keys) {
-  message += `${key}: ${user[key]}\n`;
-}
+/*map
+Получи массив имен всех пользователей (свойство name) используя деструктурирующее присваивание для параметра функции ({name}) без пробелов и переносов на новую строку.
 
-console.log(message);
-/*
-'age : 20
-hobby : skydiving
-name : Mango
-premium : false
-mood : happy
-"full time" : true
-' */
+Используй только перебирающие методы массива которые не изменяют (не мутируют) исходный массив. Т.е. нельзя использовать for, splice, push и т.п. мутирующие методы.
 
-// CRUD для свойств объекта
-// С - create(создать)
-// R - read(читать)
-// U - update(обновить)
-// D - delete (удалить)
-// Напиши скрипт, который, для объекта user, последовательно:
+Деструктурирующее присваивание для параметра функции
+PS Деструктурирующее присваивание (ДП):
 
-// добавляет поле 'mood' со значением 'happy'
-// добавляет поле 'full time' со значением true
-// заменяет значение 'hobby' на 'skydiving'
-// заменяет значение 'premium' на false
-// в переменную message записывает содержимое объекта user:
-// для переменной keys присваивает массив свойств объекта, используя метод Object.keys()
-// с помощью оператора for...of
-// в формате ключ: значение
-// c переносом строки('\n')
+Объект как параметр без ДП
+const object = {num : 2}
+function getNum (obj) { return obj.num; }
+console.log(getNum(object)) // 2
+ДП
+const object = {num : 2}
+// const num  =  object.num;
+const { num } = object;
+console.log(num) // 2
+Объект как параметр c ДП
+const object = {num : 2}
+//function getNum (obj) { return obj.num; }
+function getNum ({num}) { return num; }
+console.log(getNum(object)) // 2 */

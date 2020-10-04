@@ -1,35 +1,40 @@
-function getAllPropValues(array, prop) {
-  const resultValues = [];
-  for (const product of array) {
-    if (prop in product) {
-      resultValues.push(product[prop]);
-    }
-  }
-  return resultValues;
-}
+const getUserWithEmail = (array, mail) =>
+  array.find(({ email }) => email === mail);
 
-// Объекты и ожидаемый результат
-const products = [
-  { name: 'Радар', price: 1300, quantity: 4 },
-  { name: 'Радар', price: 1280, quantity: 2 },
-  { name: 'Радар', price: 1320, quantity: 1 },
-  { name: 'Сканер', price: 2700, quantity: 1 },
-  { name: 'Сканер', price: 2500, quantity: 3 },
-  { name: 'Дроид', price: 400, quantity: 7 },
-  { name: 'Захват', price: 1200, quantity: 2 },
-];
+console.log(getUserWithEmail(users, 'rossvazquez@xinware.com'));
+/* {
+    id: '88beb2f3-e4c2-49f3-a0a0-ecf957a95af3',
+    name: 'Ross Vazquez',
+    email: 'rossvazquez@xinware.com',
+    eyeColor: 'green',
+    friends: ['Marilyn Mcintosh', 'Padilla Garrison', 'Naomi Buckner'],
+    isActive: false,
+    balance: 3793,
+    skills: ['nulla', 'anim', 'proident', 'ipsum', 'elit'],
+    gender: 'male',
+    age: 24,
+} */
 
-console.log(getAllPropValues(products, 'name'));
-// ['Радар', 'Радар', 'Радар', 'Сканер', 'Сканер', 'Дроид', 'Захват']
+console.log(getUserWithEmail(users, 'blackburndotson@furnigeer.com'));
 
-console.log(getAllPropValues(products, 'quantity'));
-// [4, 2, 1, 1, 3, 7, 2]
+/* {
+    id: '150b00fb-dd82-427d-9faf-2879ea87c695',
+    name: 'Blackburn Dotson',
+    email: 'blackburndotson@furnigeer.com',
+    eyeColor: 'brown',
+    friends: ['Jacklyn Lucas', 'Linda Chapman'],
+    isActive: false,
+    balance: 1498,
+    skills: ['non', 'amet', 'ipsum'],
+    gender: 'male',
+    age: 38,
+} */
 
-console.log(getAllPropValues(products, 'category'));
-//  []
+/*
+find
+Получи объект пользователя (не массив) по уникальному значению свойства email.
 
-// Напиши функцию getAllPropValues(arr, prop), которая получает массив объектов и имя свойства.
+Используй деструктурирующее присваивание для параметра функции ({email}) без пробелов и переносов на новую строку.
 
-// Функция возвращает массив значений определенного свойства prop из каждого объекта в массиве.
-
-// Используй метод push для добавления значения в массив и оператор in для проверки наличия свойства в объекте.
+Используй только перебирающие методы массива которые не изменяют (не мутируют) исходный массив. Т.е. нельзя использовать for, splice, push и т.п. мутирующие методы.
+*/
